@@ -1,0 +1,39 @@
+<div class="bg-neutral-100 min-h-screen grid place-items-center">
+	<div class="min-w-[1200px] min-h-[500px] bg-white flex rounded-2xl overflow-hidden">
+		<div class="basis-3/5 flex flex-col gap-8 justify-center px-20 py-8">
+			<h2 class="text-2xl font-bold">
+				Please enter your email address and password to access your account
+			</h2>
+			<form
+				class="flex flex-col gap-4 border-b pb-8"
+				(submit)="login($event)"
+				[formGroup]="loginForm"
+			>
+				<input id="" type="text" name="" placeholder="email address" formControlName="email" />
+				<div class="relative flex items-center my-4">
+					<input
+						class="w-full absolute"
+						#passwordInput
+						type="password"
+						name=""
+						placeholder="password"
+						formControlName="password"
+					/>
+					<button
+						type="button"
+						class="absolute z-50 text-xs right-8"
+						(click)="changePasswordType($event)"
+					>
+					show
+					</button>
+				</div>
+				<a class="text-sm text-blue-500 capitalize" href="#">forgot password?</a>
+				<button type="submit" class="btn btn-primary">sign in</button>
+			</form>
+			<div class="max-w-40">
+				<img src="assets/images/acore.png" alt="" />
+			</div>
+		</div>
+		<div class="basis-2/5"><img class="size-full" src="assets/images/books.png" alt="" /></div>
+	</div>
+</div>
