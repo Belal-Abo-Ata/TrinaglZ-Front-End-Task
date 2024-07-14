@@ -63,7 +63,8 @@ export class LoginFromComponent {
 			});
 		} else {
 			console.log('Form is invalid');
-			this.validationHandle(this.loginForm.controls['email'], 'email');
+			this.emailErrorMsg = this.validationHandle(this.loginForm.controls['email'], 'email');
+			this.passErrorMsg =this.validationHandle(this.loginForm.controls['password'], 'password');
 			// console.log(this.loginForm.controls['email']);
 			// console.log(this.loginForm.controls['email'].errors);
 		}
@@ -75,29 +76,26 @@ export class LoginFromComponent {
 			this.router.navigate(['']);
 		} else {
 			console.log('Wrong user credentials');
+      this.credintialsErrMsg = "The email and password you have entered don't match"
 		}
 	}
 
-	validationHandle(controler: AbstractControl, ctrlName: string): void {
+	validationHandle(controler: AbstractControl, ctrlName: string): string {
+    let msg!: string;
 		for (const err in controler.errors) {
 			switch (err) {
 				case 'required':
-					console.log(`the ${ctrlName} is required`);
+					msg = `the ${ctrlName} is required`;
 					break;
 				case 'email':
-					console.log(`the ${ctrlName} must be a valid email `);
+					msg = `the ${ctrlName} must be a valid email `;
 					break;
-				case 'minLength':
-					console.log(`the ${ctrlName} is required`);
+				case 'minlength':
+					msg = `the ${ctrlName} must be at least 8 characters`;
 					break;
 			}
 		}
-	}
 
-	// get emailValid(): boolean {
-	// 	return this.loginForm.controls['email'].valid;
-	// }
-	// get passwordValid(): boolean {
-	// 	return this.loginForm.controls['password'].valid;
-	// }
+    return msg;
+	}
 }

@@ -10,6 +10,9 @@
 				[formGroup]="loginForm"
 			>
 				<input id="" type="text" name="" placeholder="email address" formControlName="email" />
+				@if (emailErrorMsg) {
+					<p class="text-sm text-red-500">- {{ emailErrorMsg }}</p>
+				}
 				<div class="relative flex items-center my-4">
 					<input
 						class="w-full absolute"
@@ -24,11 +27,17 @@
 						class="absolute z-50 text-xs right-8"
 						(click)="changePasswordType($event)"
 					>
-					show
+						show
 					</button>
 				</div>
+				@if (passErrorMsg) {
+					<p class="text-sm text-red-500">- {{ passErrorMsg }}</p>
+				}
 				<a class="text-sm text-blue-500 capitalize" href="#">forgot password?</a>
 				<button type="submit" class="btn btn-primary">sign in</button>
+				@if (credintialsErrMsg) {
+					<p class="text-sm text-red-500">- {{ credintialsErrMsg }}</p>
+				}
 			</form>
 			<div class="max-w-40">
 				<img src="assets/images/acore.png" alt="" />
