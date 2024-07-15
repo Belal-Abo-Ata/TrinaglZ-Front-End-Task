@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'books-navbar',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './books-navbar.component.css'
 })
 export class BooksNavbarComponent {
+
+  constructor(private router: Router) {}
+
+  logout(): void {
+    localStorage.removeItem('email');
+    this.router.navigate(['login'])
+  }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LogoComponent } from '../../../logo/logo.component';
+import { LogoComponent } from '../../logo/logo.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faChevronLeft, faNewspaper } from '@fortawesome/free-solid-svg-icons';

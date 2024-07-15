@@ -9,7 +9,7 @@ import {
 import { AuthService } from '../../Services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LogoComponent } from '../../logo/logo.component';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
 	selector: 'login-from',
