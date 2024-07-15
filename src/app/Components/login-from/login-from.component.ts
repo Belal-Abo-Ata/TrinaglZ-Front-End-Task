@@ -9,11 +9,12 @@ import {
 import { AuthService } from '../../Services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { LogoComponent } from '../../logo/logo.component';
 
 @Component({
-	selector: 'app-login-from',
+	selector: 'login-from',
 	standalone: true,
-	imports: [ReactiveFormsModule, HttpClientModule],
+	imports: [ReactiveFormsModule, HttpClientModule, LogoComponent],
 	providers: [AuthService],
 	templateUrl: './login-from.component.html',
 	styleUrl: './login-from.component.css',
@@ -64,24 +65,24 @@ export class LoginFromComponent {
 		} else {
 			console.log('Form is invalid');
 			this.emailErrorMsg = this.validationHandle(this.loginForm.controls['email'], 'email');
-			this.passErrorMsg =this.validationHandle(this.loginForm.controls['password'], 'password');
-			// console.log(this.loginForm.controls['email']);
-			// console.log(this.loginForm.controls['email'].errors);
+			this.passErrorMsg = this.validationHandle(this.loginForm.controls['password'], 'password');
 		}
 	}
 
-	loginHandle(res: []): void {
+	loginHandle(res: { email: string; id: string }[]): void {
 		if (res.length) {
 			console.log('Login successed');
+			const { email } = res[0];
+      localStorage.setItem('email', email)
 			this.router.navigate(['']);
 		} else {
 			console.log('Wrong user credentials');
-      this.credintialsErrMsg = "The email and password you have entered don't match"
+			this.credintialsErrMsg = "The email and password you have entered don't match";
 		}
 	}
 
 	validationHandle(controler: AbstractControl, ctrlName: string): string {
-    let msg!: string;
+		let msg!: string;
 		for (const err in controler.errors) {
 			switch (err) {
 				case 'required':
@@ -96,6 +97,6 @@ export class LoginFromComponent {
 			}
 		}
 
-    return msg;
+		return msg;
 	}
 }
