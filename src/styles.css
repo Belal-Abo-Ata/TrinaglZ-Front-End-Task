@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 @layer base {
-	input {
+	input, select, textarea {
 		@apply bg-gray-200 px-6 py-2 rounded-xl placeholder:capitalize placeholder:text-sm focus:outline-none;
 	}
 }
