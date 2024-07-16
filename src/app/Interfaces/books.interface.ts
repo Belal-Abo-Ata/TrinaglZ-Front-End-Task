@@ -6,4 +6,7 @@ export default interface BookInterface {
   price: number,
   version: string,
   title: string,
+  pages: number,
+  timeToRead: string,
+  dateOfPublish: string
 }

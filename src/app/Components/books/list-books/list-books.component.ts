@@ -47,7 +47,7 @@ export class ListBooksComponent implements OnInit {
 	bookPaginatedNumbers!: number[];
 	bookPaginatedNumbersView!: number[];
 
-  // TODO: implement the search functionality
+	// TODO: implement the search functionality
 	ngOnInit(): void {
 		this.bookSevice.getAllBokks().subscribe({
 			next: (res) => {
@@ -95,24 +95,24 @@ export class ListBooksComponent implements OnInit {
 
 	prevPage(): void {
 		const destination: number = (this.bookListStart - this.bookListPerPage) / this.bookListPerPage;
-		if (destination > 0) {
+		if (destination >= 0) {
 			this.changePage(destination);
 		}
 	}
 
 	nextPage(): void {
 		const destination: number = (this.bookListStart + this.bookListPerPage) / this.bookListPerPage;
-		if (destination <= this.bookListLength) {
+		if (destination <= this.bookPaginatedNumbers.length - 1) {
 			this.changePage(destination);
 		}
 	}
 
-  // TODO: change the active page
+	// TODO: change the active page
 	changePaginatedNumbers(number: number) {
-    this.changePage(number)
-  }
+		this.changePage(number);
+	}
 
-  deleteBook(ISBN: string | undefined) {
-    console.log(`delete ${ISBN}`);
-  }
+	deleteBook(ISBN: string | undefined) {
+		console.log(`delete ${ISBN}`);
+	}
 }
