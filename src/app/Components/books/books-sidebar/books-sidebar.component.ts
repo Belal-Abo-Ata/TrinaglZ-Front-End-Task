@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 import { LogoComponent } from '../../logo/logo.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
@@ -12,13 +13,12 @@ import { faChevronLeft, faNewspaper } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './books-sidebar.component.css'
 })
 export class BooksSidebarComponent {
-  constructor(private library: FaIconLibrary) {
+  constructor(private library: FaIconLibrary, private location: Location) {
     library.addIcons(faChevronLeft, faNewspaper);
   }
 
   // TODO: add the logic of go back
   goBack() {
-    console.log("goBack");
-
+    this.location.back()
   }
 }

@@ -1,0 +1,72 @@
+<div class="p-8 space-y-4">
+	<h3 class="book-header">Books</h3>
+	<form class="flex justify-between">
+		<div class="relative flex basis-1/2 items-center my-4">
+			<input class="w-full absolute" type="search" name="" placeholder="search" />
+			<fa-icon
+				[icon]="['fas', 'magnifying-glass']"
+				class="absolute z-50 text-sm text-gray-700 right-8"
+			/>
+		</div>
+		<button class="btn btn-primary space-x-3" routerLink="add">
+			<fa-icon [icon]="['fas', 'plus']" />
+			<span>add book</span>
+		</button>
+	</form>
+	<table
+		class="rounded-lg bg-white text-left w-full text-gray-600 [&_th]:p-4 [&_th]:text-lg [&_td]:p-4 [&_tr]:border-b"
+	>
+		<thead>
+			<tr>
+				<th>Book title</th>
+				<th>Book Category</th>
+				<th>Book Author</th>
+				<th>Book ISBN</th>
+				<th>Book Version</th>
+				<th class="text-right">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (book of bookListView; track book.ISBN) {
+				<tr>
+					<td>{{ book.title }}</td>
+					<td>{{ book.category }}</td>
+					<td>{{ book.author }}</td>
+					<td>{{ book.ISBN }}</td>
+					<td>{{ book.version }}</td>
+					<td
+						class="space-x-8 [&_button_fa-icon]:transition [&_button_fa-icon]:duration-500 min-w-40"
+					>
+						<button>
+							<fa-icon [icon]="['fas', 'eye']" class="text-blue-700 hover:text-blue-300" [routerLink]="['/books', book.ISBN]" />
+						</button>
+						<button>
+							<fa-icon [icon]="['fas', 'pen']" class="text-green-500 hover:text-green-300" [routerLink]="['/books', book.ISBN, 'edit']" />
+						</button>
+						<button (click)="deleteBook(book.ISBN)">
+							<fa-icon [icon]="['fas', 'trash']" class="text-pink-500 hover:text-pink-300"/>
+						</button>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<div
+		class="ml-auto w-fit space-x-4 text-gray-500 text-xs [&_button]:transition [&_button]:duration-500"
+	>
+		<button type="button" (click)="prevPage()">
+			<fa-icon [icon]="['fas', 'chevron-left']" />
+		</button>
+		@for (number of bookPaginatedNumbersView; track number) {
+			<button class="hover:underline" type="button" (click)="changePaginatedNumbers(number)">{{ number + 1 }}</button>
+		}
+		<!-- <button class="hover:underline"type="button">2</button> -->
+		<!-- <button class="hover:underline"type="button">3</button> -->
+		<!-- <button class="hover:underline"type="button">4</button> -->
+		<!-- <button class="hover:underline"type="button">5</button> -->
+		<button type="button">
+			<fa-icon [icon]="['fas', 'chevron-right']" (click)="nextPage()" />
+		</button>
+	</div>
+</div>

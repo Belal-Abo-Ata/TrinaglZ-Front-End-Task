@@ -3,11 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  input {
-    @apply bg-gray-200 px-6 py-2 rounded-xl placeholder:capitalize placeholder:text-sm focus:outline-none
-  }
+	input {
+		@apply bg-gray-200 px-6 py-2 rounded-xl placeholder:capitalize placeholder:text-sm focus:outline-none;
+	}
 }
 
 @layer components {
@@ -15,15 +14,23 @@
 		@apply px-10 py-2 rounded-xl font-bold w-fit capitalize transition duration-300 shadow-lg;
 	}
 
-	.btn.btn-primary {
+	.btn-primary {
 		@apply bg-blue-700 text-white hover:bg-blue-500;
 	}
 
-	.btn.btn-danger {
+	.btn-danger {
 		@apply bg-red-700 text-white hover:bg-red-500;
 	}
 
-	.btn.btn-gray {
+	.btn-gray {
 		@apply bg-gray-300 text-black hover:bg-gray-100;
+	}
+
+	.book-header {
+		@apply text-gray-600 text-4xl font-bold;
+	}
+
+	.paginate-active {
+		@apply btn btn-primary px-3 py-1 rounded-md;
 	}
 }
