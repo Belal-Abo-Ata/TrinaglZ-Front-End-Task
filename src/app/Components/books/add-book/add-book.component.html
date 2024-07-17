@@ -1,28 +1,33 @@
 <div class="p-8 space-y-4 h-full">
 	<h3 class="book-header">add book</h3>
 	<div class="rounded-lg bg-white p-8 w-full h-full flex justify-between">
-		<form class="flex gap-10 w-full">
+		<form class="flex gap-10 w-full" [formGroup]="addBookForm" (submit)="saveBook($event)">
 			<div class="space-y-8 basis-1/3">
-				@for (inputField of inputFields; track inputField.placeholder) {
+				@for (inputField of inputFields; track inputField?.placeholder) {
 					<div class="relative">
-						@if (inputField.type !== 'select' && inputField.type !== 'date') {
-							<div
-								class="absolute left-6 top-1/2 -translate-y-1/2 text-sm text-gray-400 placeholder pointer-events-none select-none capitalize"
-							>
-								{{ inputField.placeholder }}
-								@if (inputField.required) {
-									<span class="text-red-500 text-xs ml-px">*</span>
-								}
-							</div>
-						}
 						@if (inputField.type !== 'select') {
-							<input type="{{ inputField.type }}" (input)="onInputChange($event)" class="text-sm" />
+							<input
+								type="{{ inputField.type }}"
+								class="text-sm"
+								formControlName="{{ inputField.formControl }}"
+								(input)="onInputChange($event)"
+							/>
 						} @else {
 							<select class="text-sm">
 								@for (option of inputField.selectOptions; track option) {
 									<option>{{ option }}</option>
 								}
 							</select>
+						}
+						@if (inputField.type !== 'select' && inputField.type !== 'date') {
+							<div
+								class="absolute left-6 top-1/2 -translate-y-1/2 text-sm text-gray-400 placeholder pointer-events-none select-none capitalize placeholder-container"
+							>
+								{{ inputField.placeholder }}
+								@if (inputField.required) {
+									<span class="text-red-500 text-xs ml-px">*</span>
+								}
+							</div>
 						}
 					</div>
 				}
@@ -58,12 +63,13 @@
 						<textarea
 							(input)="onInputChange($event)"
 							class="text-sm min-w-full min-h-40 resize-none"
+							formControlName="brief"
 						></textarea>
 					</div>
 				</div>
 				<div class="text-right space-x-4 mt-auto">
-					<button class="btn btn-gray">cancel</button>
-					<button class="btn btn-primary">save</button>
+					<button type="reset" class="btn btn-gray" (click)="cancelHandle()">cancel</button>
+					<button type="submit" class="btn btn-primary">save</button>
 				</div>
 			</div>
 		</form>

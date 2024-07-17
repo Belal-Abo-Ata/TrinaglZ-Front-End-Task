@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
 	faMagnifyingGlass,
@@ -28,7 +28,8 @@ export class ListBooksComponent implements OnInit {
 	constructor(
 		private library: FaIconLibrary,
 		private bookSevice: BooksService,
-		public dialog: MatDialog,
+		private dialog: MatDialog,
+    private router: ActivatedRoute,
 	) {
 		library.addIcons(
 			faMagnifyingGlass,
@@ -52,6 +53,15 @@ export class ListBooksComponent implements OnInit {
 
 	// TODO: implement the search functionality
 	ngOnInit(): void {
+		this.fetchBooks();
+		this.router.queryParams.subscribe((params) => {
+			if (params['refresh']) {
+				this.fetchBooks();
+			}
+		});
+	}
+
+	fetchBooks() {
 		this.bookSevice.getAllBokks().subscribe({
 			next: (res) => {
 				console.log(res);
@@ -60,7 +70,7 @@ export class ListBooksComponent implements OnInit {
 					const { ISBN, title, author, category, version } = book;
 					return { ISBN, title, author, category, version };
 				});
-        this.getPaginatedNumber();
+				this.getPaginatedNumber();
 				this.displayBookList(this.bookListStart, this.bookListEnd);
 				this.renderPaginate(0);
 			},

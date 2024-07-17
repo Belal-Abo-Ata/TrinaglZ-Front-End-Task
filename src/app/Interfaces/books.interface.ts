@@ -8,5 +8,6 @@ export default interface BookInterface {
   title: string,
   pages: number,
   timeToRead: string,
-  dateOfPublish: string
+  date: string,
+  [key: string]: string | number
 }

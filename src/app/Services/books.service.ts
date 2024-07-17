@@ -19,4 +19,12 @@ export class BooksService {
   deleteBook(ISBN: string) {
     return this.http.delete(`${environment.apiUrl}/books/${ISBN}`);
   }
+
+  addBook(book: any) {
+    return this.http.post(`${environment.apiUrl}/books`, book)
+  }
+
+  editBook(ISBN: string, book: any) {
+    return this.http.put(`${environment.apiUrl}/books/${ISBN}`, book)
+  }
 }

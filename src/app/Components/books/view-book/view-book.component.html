@@ -10,32 +10,37 @@
 					<h2 class="text-gray-600 text-2xl font-bold">{{ book.title }}</h2>
 					<div class="flex justify-center gap-10 mt-10">
 						<div>
-              <p class="text-2xl text-blue-600 font-bold">{{book.pages}}</p>
+							<p class="text-2xl text-blue-600 font-bold">{{ book.pages || '200' }}</p>
 							<p class="text-sm text-gray-500 font-bold">Pages</p>
 						</div>
 						<div>
-              <p class="text-2xl text-blue-600 font-bold">{{book.timeToRead}}</p>
+							<p class="text-2xl text-blue-600 font-bold">{{ book.timeToRead || '20h' }}</p>
 							<p class="text-sm text-gray-500 font-bold">To read</p>
 						</div>
 					</div>
 				</div>
 			</div>
-      <div class="flex gap-24 mt-8">
-        <div class="text-xs text-gray-500 space-y-4 basis-1/2">
-          <p>By {{book.author}} | {{book.dateOfPublish | date }}</p>
-          <p class="text-blue-700 font-bold">&dollar; {{book.price}}<p>
-          <p>Version: {{book.version}}<p>
-          <p class="btn btn-gray bg-gray-200 text-xs text-gray-500">{{book.category}}<p>
-        </div>
-        <div class="space-y-4">
-          <h3 class="text-gray-600 text-xl font-bold mt-0">Brief</h3>
-          <p class="text-sm text-gray-500">{{book.brief}}</p>
-        </div>
-      </div>
+			<div class="flex gap-24 mt-8">
+				<div class="text-xs text-gray-500 space-y-4 basis-1/2">
+					<p>By {{ book.author }} | {{ book.date | date }}</p>
+					<p class="text-blue-700 font-bold">&dollar; {{ book.price }}</p>
+					<p></p>
+					<p>Version: {{ book.version }}</p>
+					<p></p>
+					<p class="btn btn-gray bg-gray-200 text-xs text-gray-500">{{ book.category }}</p>
+					<p></p>
+				</div>
+				<div class="space-y-4">
+					<h3 class="text-gray-600 text-xl font-bold mt-0">Brief</h3>
+					<p class="text-sm text-gray-500">{{ book.brief }}</p>
+				</div>
+			</div>
 		</div>
 		<div class="space-x-4 basis-1/5 text-sm">
 			<button class="btn btn-danger px-3 py-2">Delete</button>
-			<button class="btn btn-primary px-3 py-2" [routerLink]="['/books', ISBN, 'edit']">Edit</button>
+			<button class="btn btn-primary px-3 py-2" [routerLink]="['/books', ISBN, 'edit']">
+				Edit
+			</button>
 		</div>
 	</div>
 </div>
