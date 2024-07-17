@@ -2,7 +2,7 @@
 	<h3 class="book-header">Books</h3>
 	<form class="flex justify-between">
 		<div class="relative flex basis-1/2 items-center my-4">
-			<input class="w-full absolute" type="search" name="" placeholder="search" />
+			<input class="w-full absolute" type="search" name="" placeholder="search" (input)="searchBook($event)" />
 			<fa-icon
 				[icon]="['fas', 'magnifying-glass']"
 				class="absolute z-50 text-sm text-gray-700 right-8"

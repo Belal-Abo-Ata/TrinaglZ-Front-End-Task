@@ -29,7 +29,7 @@ export class ListBooksComponent implements OnInit {
 		private library: FaIconLibrary,
 		private bookSevice: BooksService,
 		private dialog: MatDialog,
-    private router: ActivatedRoute,
+		private router: ActivatedRoute,
 	) {
 		library.addIcons(
 			faMagnifyingGlass,
@@ -93,6 +93,8 @@ export class ListBooksComponent implements OnInit {
 
 	displayBookList(start: number, end: number): void {
 		this.bookListView = this.bookList.slice(start, end);
+		this.getPaginatedNumber();
+		this.renderPaginate(0);
 	}
 
 	renderPaginate(start: number) {
@@ -124,7 +126,6 @@ export class ListBooksComponent implements OnInit {
 		}
 	}
 
-	// TODO: change the active page
 	changePaginatedNumbers(number: number) {
 		this.changePage(number);
 	}
@@ -144,9 +145,20 @@ export class ListBooksComponent implements OnInit {
 			if (result !== 'closed') {
 				this.bookList = this.bookList.filter((book) => book.ISBN !== result);
 				this.displayBookList(this.bookListStart, this.bookListEnd);
-				this.getPaginatedNumber();
-				this.renderPaginate(0);
 			}
 		});
+	}
+
+	// TODO: change the active page
+	searchBook(e: Event) {
+		const target = e.target as HTMLInputElement;
+		const inputValue = target.value;
+		if (inputValue) {
+			this.bookListView = this.bookList.filter(
+				(book) => book.title?.includes(inputValue) || book.author?.includes(inputValue),
+			);
+		} else {
+			this.displayBookList(this.bookListStart, this.bookListEnd);
+		}
 	}
 }
