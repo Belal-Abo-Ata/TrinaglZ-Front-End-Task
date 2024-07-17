@@ -1,33 +1,22 @@
-version: "3.9"
+version: '3.9'
+
+services:
+  angular-app:
+    container_name: angular-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - angular
+  json-server:
+    image: clue/json-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./json-server/db.json:/data/db.json
 
 networks:
   angular:
-    name: angular
-
-
-services:
-  app:
-    container_name: angular-app
-    build:
-      context: ./trinagl-task/ 
-      dockerfile: DockerFile
-    depends_on:
-      - server
-    volumes:
-      - ./home/node/app/
-    networks:
-      - angular
-
-  server: 
-    container_name: json-server
-    image: pickonefish/json-server
-    command: ["json-server", "--watch", "/data/db.json"]
-    volumes:
-      - ./json-server/db.json:/data/db.json
-    ports:
-      - "3000:3000"
-    networks:
-      - angular
-    environment:
-      - JSON_SERVER_PORT=3000
-
+    driver: bridge
