@@ -12,7 +12,11 @@ export class BooksService {
 		return this.http.get(`${environment.apiUrl}/books`);
 	}
 
-	getBook(ISBN: number) {
+	getBook(ISBN: string) {
 		return this.http.get(`${environment.apiUrl}/books?ISBN=${ISBN}`);
 	}
+
+  deleteBook(ISBN: string) {
+    return this.http.delete(`${environment.apiUrl}/books/${ISBN}`);
+  }
 }

@@ -43,7 +43,7 @@
 						<button>
 							<fa-icon [icon]="['fas', 'pen']" class="text-green-500 hover:text-green-300" [routerLink]="['/books', book.ISBN, 'edit']" />
 						</button>
-						<button (click)="deleteBook(book.ISBN)">
+          <button (click)="deleteBook(book.ISBN)" mat-button  (click)="openModal(book.ISBN)">
 							<fa-icon [icon]="['fas', 'trash']" class="text-pink-500 hover:text-pink-300"/>
 						</button>
 					</td>

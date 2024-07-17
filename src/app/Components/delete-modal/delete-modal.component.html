@@ -1,0 +1,10 @@
+<div class="p-4">
+	<h2 mat-dialog-title>Delete Book</h2>
+	<mat-dialog-content>
+		<p>Are you sure you want to delete this Book?</p>
+	</mat-dialog-content>
+	<mat-dialog-actions class="!ml-auto w-fit space-x-4">
+		<button class="btn btn-gray" (click)="closeModal()">Close</button>
+		<button class="btn btn-danger" (click)="deleteBook()">Delete</button>
+	</mat-dialog-actions>
+</div>

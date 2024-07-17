@@ -32,6 +32,6 @@ export class ViewBookComponent implements OnInit {
 		});
 	}
 
-	ISBN!: number;
+	ISBN!: string;
 	book!: Partial<BookInterface>;
 }

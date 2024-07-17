@@ -4,7 +4,9 @@
 @tailwind utilities;
 
 @layer base {
-	input, select, textarea {
+	input,
+	select,
+	textarea {
 		@apply bg-gray-200 px-6 py-2 rounded-xl placeholder:capitalize placeholder:text-sm focus:outline-none;
 	}
 }
@@ -33,4 +35,13 @@
 	.paginate-active {
 		@apply btn btn-primary px-3 py-1 rounded-md;
 	}
+}
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

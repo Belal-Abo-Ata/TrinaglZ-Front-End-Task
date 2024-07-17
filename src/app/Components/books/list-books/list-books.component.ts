@@ -13,6 +13,8 @@ import {
 import { BooksService } from '../../../Services/books.service';
 import { HttpClientModule } from '@angular/common/http';
 import BookInterface from '../../../Interfaces/books.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteModalComponent } from '../../delete-modal/delete-modal.component';
 
 @Component({
 	selector: 'app-list-books',
@@ -26,6 +28,7 @@ export class ListBooksComponent implements OnInit {
 	constructor(
 		private library: FaIconLibrary,
 		private bookSevice: BooksService,
+		public dialog: MatDialog,
 	) {
 		library.addIcons(
 			faMagnifyingGlass,
@@ -53,18 +56,11 @@ export class ListBooksComponent implements OnInit {
 			next: (res) => {
 				console.log(res);
 				const books = res as BookInterface[];
-				this.bookListLength = books.length;
-				const bookPaginatedNumbersLength: number = Math.ceil(
-					this.bookListLength / this.bookListPerPage,
-				);
-				this.bookPaginatedNumbers = Array.from(
-					{ length: bookPaginatedNumbersLength },
-					(_, index) => index,
-				);
 				this.bookList = books.map((book) => {
 					const { ISBN, title, author, category, version } = book;
 					return { ISBN, title, author, category, version };
 				});
+        this.getPaginatedNumber();
 				this.displayBookList(this.bookListStart, this.bookListEnd);
 				this.renderPaginate(0);
 			},
@@ -72,6 +68,17 @@ export class ListBooksComponent implements OnInit {
 				console.error('Get books request has failed', err);
 			},
 		});
+	}
+
+	getPaginatedNumber(): void {
+		this.bookListLength = this.bookList.length;
+		const bookPaginatedNumbersLength: number = Math.ceil(
+			this.bookListLength / this.bookListPerPage,
+		);
+		this.bookPaginatedNumbers = Array.from(
+			{ length: bookPaginatedNumbersLength },
+			(_, index) => index,
+		);
 	}
 
 	displayBookList(start: number, end: number): void {
@@ -114,5 +121,22 @@ export class ListBooksComponent implements OnInit {
 
 	deleteBook(ISBN: string | undefined) {
 		console.log(`delete ${ISBN}`);
+	}
+
+	openModal(ISBN: string | undefined): void {
+		const dialogRef = this.dialog.open(DeleteModalComponent, {
+			width: '600px',
+			enterAnimationDuration: '500ms',
+			exitAnimationDuration: '300ms',
+			data: { ISBN: ISBN },
+		});
+		dialogRef.afterClosed().subscribe((result) => {
+			if (result !== 'closed') {
+				this.bookList = this.bookList.filter((book) => book.ISBN !== result);
+				this.displayBookList(this.bookListStart, this.bookListEnd);
+				this.getPaginatedNumber();
+				this.renderPaginate(0);
+			}
+		});
 	}
 }
