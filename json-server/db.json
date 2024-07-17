@@ -1,0 +1,253 @@
+{
+  "admins": [
+    {
+      "email": "belal@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "email": "ahmed@gmail.com",
+      "password": "87654321"
+    }
+  ],
+  "books": [
+    {
+      "id": "9780451524935",
+      "title": "Hello",
+      "author": "George Orwell",
+      "category": "Dystopian",
+      "price": "250",
+      "version": "Revised",
+      "ISBN": "9780451524935",
+      "date": "1949-06-08",
+      "brief": "A story set in a totalitarian society ruled by Big Brother."
+    },
+    {
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "category": "Adventure",
+      "price": 12.5,
+      "version": "Penguin Classics",
+      "ISBN": "9780142437247",
+      "id": "9780142437247",
+      "brief": "The quest of Captain Ahab to take revenge on the whale Moby Dick.",
+      "pages": 635,
+      "timeToRead": "16h",
+      "date": "1851-11-14"
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Romance",
+      "price": 9.99,
+      "version": "3rd",
+      "ISBN": "9781503290563",
+      "id": "9781503290563",
+      "brief": "A romantic novel of manners that depicts the British Regency era.",
+      "pages": 279,
+      "timeToRead": "7h",
+      "date": "1813-01-28"
+    },
+    {
+      "id": "9780743273565",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "category": "Classics",
+      "price": "300",
+      "version": "4th",
+      "ISBN": "9780743273565",
+      "date": "1925-04-10",
+      "brief": "A story about the young and mysterious millionaire Jay Gatsby."
+    },
+    {
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "category": "Historical",
+      "price": 24.99,
+      "version": "Vintage",
+      "ISBN": "9781400079988",
+      "id": "9781400079988",
+      "brief": "A novel that chronicles the history of the French invasion of Russia.",
+      "pages": 1225,
+      "timeToRead": "50h",
+      "date": "1869-01-01"
+    },
+    {
+      "id": "9780316769488",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "category": "Fiction",
+      "price": 10.99,
+      "version": "2nd",
+      "ISBN": "9780316769488",
+      "date": "1951-07-16",
+      "brief": "A story about the events and conversations experienced by a young man."
+    },
+    {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "category": "Fantasy",
+      "price": 22.99,
+      "version": "Illustrated",
+      "ISBN": "9780547928227",
+      "id": "9780547928227",
+      "brief": "A prelude to the Lord of the Rings, featuring the journey of Bilbo Baggins.",
+      "pages": 310,
+      "timeToRead": "8h",
+      "date": "1937-09-21"
+    },
+    {
+      "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "category": "Science Fiction",
+      "price": 16.99,
+      "version": "Special Edition",
+      "ISBN": "9781451673319",
+      "id": "9781451673319",
+      "brief": "A dystopian novel about a future American society where books are outlawed.",
+      "pages": 194,
+      "timeToRead": "4h",
+      "date": "1953-10-19"
+    },
+    {
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "category": "Romance",
+      "price": 11.99,
+      "version": "4th",
+      "ISBN": "9780141441146",
+      "id": "9780141441146",
+      "brief": "A novel that follows the experiences of the eponymous heroine.",
+      "pages": 500,
+      "timeToRead": "12h",
+      "date": "1847-10-16"
+    },
+    {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "category": "Dystopian",
+      "price": 13.99,
+      "version": "Vintage",
+      "ISBN": "9780060850524",
+      "id": "9780060850524",
+      "brief": "A novel about a futuristic world state of genetically modified citizens.",
+      "pages": 311,
+      "timeToRead": "7h",
+      "date": "1932-08-31"
+    },
+    {
+      "title": "The Odyssey",
+      "author": "Homer",
+      "category": "Epic",
+      "price": 19.99,
+      "version": "Translated",
+      "ISBN": "9780140268867",
+      "id": "9780140268867",
+      "brief": "The epic journey of Odysseus as he returns home from the Trojan War.",
+      "pages": 541,
+      "timeToRead": "12h",
+      "date": "8th Century BC"
+    },
+    {
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "category": "Philosophical",
+      "price": 17.99,
+      "version": "Revised",
+      "ISBN": "9780374528379",
+      "id": "9780374528379",
+      "brief": "A spiritual drama of moral struggles concerning faith, doubt, and reason.",
+      "pages": 796,
+      "timeToRead": "20h",
+      "date": "1880-01-01"
+    },
+    {
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "category": "Philosophical",
+      "price": 8.99,
+      "version": "Annotated",
+      "ISBN": "9780141439570",
+      "id": "9780141439570",
+      "brief": "A novel about a young man whose portrait ages instead of him.",
+      "pages": 254,
+      "timeToRead": "6h",
+      "date": "1890-06-20"
+    },
+    {
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "category": "Philosophical",
+      "price": 14.5,
+      "version": "Modern Library",
+      "ISBN": "9780679734505",
+      "id": "9780679734505",
+      "brief": "A psychological drama focusing on the moral dilemmas of its protagonist.",
+      "pages": 671,
+      "timeToRead": "20h",
+      "date": "1866-01-01"
+    },
+    {
+      "title": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "category": "Romance",
+      "price": 20.99,
+      "version": "Pevear and Volokhonsky",
+      "ISBN": "9780143035008",
+      "id": "9780143035008",
+      "brief": "A tragic love story set against the backdrop of Russian high society.",
+      "pages": 864,
+      "timeToRead": "24h",
+      "date": "1877-01-01"
+    },
+    {
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "category": "Gothic",
+      "price": 10.99,
+      "version": "Penguin Classics",
+      "ISBN": "9780141439556",
+      "id": "9780141439556",
+      "brief": "A tale of passion and revenge set on the Yorkshire moors.",
+      "pages": 416,
+      "timeToRead": "10h",
+      "date": "1847-12-01"
+    },
+    {
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "category": "Horror",
+      "price": 7.99,
+      "version": "Unabridged",
+      "ISBN": "9780451419439",
+      "id": "9780451419439",
+      "brief": "A story that follows the lives and interactions of several characters.",
+      "pages": 1488,
+      "timeToRead": "50h",
+      "date": "1862-04-03"
+    },
+    {
+      "id": "fsdaf",
+      "title": "fsdf",
+      "author": "fdsaf",
+      "category": "fdsf",
+      "price": "fdsaf",
+      "version": "dsf",
+      "edition": "fds",
+      "ISBN": "fsdaf",
+      "date": "2024-07-05",
+      "brief": "dsfsdafdsf"
+    },
+    {
+      "id": "fsdaf",
+      "title": "fsdf",
+      "author": "fdsaf",
+      "category": "fdsf",
+      "price": "fdsaf",
+      "version": "dsf",
+      "edition": "fds",
+      "ISBN": "fsdaf",
+      "date": "2024-07-05",
+      "brief": "dsfsdafdsf"
+    }
+  ]
+}
