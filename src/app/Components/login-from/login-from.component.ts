@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
 	AbstractControl,
 	FormControl,
@@ -19,11 +19,16 @@ import { LogoComponent } from '../logo/logo.component';
 	templateUrl: './login-from.component.html',
 	styleUrl: './login-from.component.css',
 })
-export class LoginFromComponent {
+export class LoginFromComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private authService: AuthService,
 	) {}
+
+	ngOnInit(): void {
+		const isLoggedIn = localStorage.getItem('email');
+    this.router.navigate([''])
+	}
 	// password input element reference
 	// used to handle the show and the hide of password
 	@ViewChild('passwordInput') passwordInput!: ElementRef;
@@ -73,7 +78,7 @@ export class LoginFromComponent {
 		if (res.length) {
 			console.log('Login successed');
 			const { email } = res[0];
-      localStorage.setItem('email', email)
+			localStorage.setItem('email', email);
 			this.router.navigate(['']);
 		} else {
 			console.log('Wrong user credentials');
